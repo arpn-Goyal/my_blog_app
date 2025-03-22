@@ -1,0 +1,21 @@
+{
+  "name": "my_blog_app",
+  "version": "1.0.0",
+  "description": "This would be my Blog App, creating using MERN \r <br>\r Let's start this Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpn-Goyal/my_blog_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arpn-Goyal/my_blog_app/issues"
+  },
+  "homepage": "https://github.com/arpn-Goyal/my_blog_app#readme"
+}
