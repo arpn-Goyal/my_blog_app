@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This would be my Blog App, creating using MERN \r <br>\r Let's start this Project",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "start": "nodemon server"
   },
@@ -13,9 +14,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/arpn-Goyal/my_blog_app/issues"
   },
-  "homepage": "https://github.com/arpn-Goyal/my_blog_app#readme"
+  "homepage": "https://github.com/arpn-Goyal/my_blog_app#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.12.2"
+  }
 }
