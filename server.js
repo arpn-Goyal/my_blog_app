@@ -1,6 +1,7 @@
 import e from "express";
 import useSignupRouter from "./routes/signUp.js";
 import useLoginRouter from './routes/login.js';
+import useUserRouter from './routes/user.js';
 
 const port = 5000;
 const app = e();
@@ -15,10 +16,11 @@ app.use(e.static('public'));
 // Routers
 app.use('/signup', useSignupRouter);
 app.use('/login', useLoginRouter);
+app.use('/user', useUserRouter);
 
 // ---------------------------------
 app.get('/', (req, res)=>{
-    res.render('index');
+    res.render('blogs');
 })
 
 app.listen(port, ()=>{
