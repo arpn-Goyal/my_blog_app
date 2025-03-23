@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This would be my Blog App, creating using MERN \r <br>\r Let's start this Project",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "start": "nodemon server"
   },
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/arpn-Goyal/my_blog_app#readme",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
