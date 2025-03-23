@@ -3,9 +3,21 @@ import useSignupRouter from "./routes/signUp.js";
 import useLoginRouter from './routes/login.js';
 import useUserRouter from './routes/user.js';
 import bodyParser from "body-parser";
+import dotenv from 'dotenv';
+import mongoose from "mongoose";
 
-const port = 5000;
 const app = e();
+
+// Load environment variables
+dotenv.config();
+const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI;
+
+// Connect to MongoDB
+mongoose.connect(MONGO_URI)
+    .then(() => console.log("✅ Connected to MongoDB"))
+    .catch((err) => console.error("❌ MongoDB connection error:", err));
+
 
 // Set EJS as view Engine 
 app.set('view engine', 'ejs');
@@ -28,6 +40,6 @@ app.get('/', (req, res)=>{
     res.render('writeBlog');
 })
 
-app.listen(port, ()=>{
-    console.log(`Ur server is running on http://localhost:${port}`)
+app.listen(PORT, ()=>{
+    console.log(`Ur server is running on http://localhost:${PORT}`)
 })
