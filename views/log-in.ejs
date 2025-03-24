@@ -1,7 +1,6 @@
 <!-- navigation Headers -->
 
 <%- include('header') %>
-
         <!-- Header -->
         <header class="ex-header">
             <div class="container">
@@ -14,7 +13,6 @@
         </header> <!-- end of ex-header -->
         <!-- end of header -->
         
-        
         <!-- Basic -->
         <div class="ex-form-1 pt-5 pb-5">
             <div class="container">
@@ -24,17 +22,23 @@
                             <p class="mb-4">You don't have a password? Then please <a class="blue" href="/signup">Sign Up</a></p>
 
                             <!-- Log In Form -->
-                            <form>
+                            <form action="/login/checkLogin" method="GET">
                                 <div class="mb-4 form-floating">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <input type="email" onfocus="handleWrongEmail" class="form-control" name="loginEmail" value="<%= userData.loginEmail ? userData.loginEmail : '' %>" id="floatingInput" placeholder="name@example.com" required>
                                     <label for="floatingInput">Email address</label>
+                                    <% if(errorMsg && errorField === 'email') {%>
+                                        <p style="color: red; font-size: 14px;" id="erorMsgEmail"><%= errorMsg %></p>
+                                    <% } %>    
                                 </div>
                                 <div class="mb-4 form-floating">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <input type="password" onfocus="handleWrongpassword" class="form-control" name="loginPassword" id="floatingPassword" placeholder="Password" required>
                                     <label for="floatingPassword">Password</label>
+                                    <% if(errorMsg && errorField === 'password') {%>
+                                        <p style="color: red; font-size: 14px;" id="erorMsgPassword"><%= errorMsg %></p>
+                                    <% } %> 
                                 </div>
                                 <div class="mb-4 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                     <label class="form-check-label" for="exampleCheck1">I agree with the site's stated <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
                                 </div>
                                 <button type="submit" class="form-control-submit-button">Log in</button>
@@ -51,3 +55,12 @@
 
         <!-- Footer -->
         <%- include('footer') %>
+
+        <script>
+            function handleWrongEmail(){
+            document.querySelector('#erorMsgEmail').style.display = 'none';
+            }
+            function handleWrongpassword(){
+            document.querySelector('#erorMsgPassword').style.display = 'none';
+            }
+        </script>

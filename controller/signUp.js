@@ -1,12 +1,18 @@
 import signUp from "../models/signUp.mongodb.js";
+import bcrypt from 'bcrypt';
 
 export const handleSignUp = async (req, res) => {
   try {
     const { signupEmail, signupName, signupPassword, signupContact } = req.body;
+
+    // 🔹 Generate salt & hash the password
+    const saltRounds = 10;
+    const hashPassword = await bcrypt.hash(signupPassword, saltRounds);
+
     const response = await signUp.create({
       signupEmail,
       signupName,
-      signupPassword,
+      signupPassword : hashPassword, // Storing hashed password
       signupContact,
     });
 
@@ -24,7 +30,7 @@ export const handleSignUp = async (req, res) => {
       });
     }
     console.error("Error during signup:", error);
-    res.setHeader("X-Error-Message", "Internal Server Error");
+    res.setHeader("X-Error-Message-SignUp", "Internal Server Error");
     res.status(500).end();
   }
 };

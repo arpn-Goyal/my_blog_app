@@ -5,8 +5,18 @@ import useUserRouter from './routes/user.js';
 import bodyParser from "body-parser";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
-
+import session from "express-session";
 const app = e();
+
+// ---------------------------------
+// Sesssion
+app.use(session({secret : 'secretKey'}))
+
+// To make session accessible globally in EJS
+app.use((req, res, next)=>{
+    res.locals.keyNameSession = req.session;
+    next();
+})
 
 // Load environment variables
 dotenv.config();
@@ -17,7 +27,6 @@ const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI)
     .then(() => console.log("✅ Connected to MongoDB"))
     .catch((err) => console.error("❌ MongoDB connection error:", err));
-
 
 // Set EJS as view Engine 
 app.set('view engine', 'ejs');
@@ -40,6 +49,15 @@ app.get('/', (req, res)=>{
     res.render('writeBlog');
 })
 
+// logout
+app.get('/logout', (req, res)=>{
+    req.session.destroy((err)=>{
+       if(err){
+        console.log(`Session getting err ${err}`)
+       }
+    })
+    res.redirect('/login')
+})
 app.listen(PORT, ()=>{
     console.log(`Ur server is running on http://localhost:${PORT}`)
 })

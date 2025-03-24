@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/arpn-Goyal/my_blog_app#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
