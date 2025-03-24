@@ -4,7 +4,7 @@ import {handleSignUp} from '../controller/signUp.js';
 
 
 router.get('/', (req, res)=>{
-    res.render('sign-up');
+    res.render('sign-up', { userFilledData: {}, errorMsg: "", errorField: "" });
 })
 
 router.post('/submit', handleSignUp)

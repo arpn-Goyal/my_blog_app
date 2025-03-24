@@ -25,30 +25,34 @@
                             <a class="blue" href="/login">Log In</a>
                         </p>
 
+                       
                         <!-- Sign Up Form -->
                         <form action="/signup/submit" method="POST">
                             <div class="mb-4 form-floating">
-                                <input type="email" class="form-control" id="floatingInput" name="signupEmail"
-                                    placeholder="name@example.com">
+                                <input onfocus="handleErrMsg()" id="email-Field" type="email" class="form-control <%= errorMsg ? 'border-danger' : '' %>" id="floatingInput" name="signupEmail"
+                                    placeholder="name@example.com" value="<%= userFilledData ?  userFilledData.signupEmail : '' %>">
                                 <label for="floatingInput">Email address</label>
+                                <% if(errorMsg && errorField === 'email') {%>
+                                    <p style="color: red; font-size: 14px;" id="erorMsg"><%= errorMsg %></p>
+                                <% } %>
                             </div>
                             <div class="mb-4 form-floating">
                                 <input type="text" class="form-control" id="floatingInput2" placeholder="Your name"
-                                    name="signupName">
+                                    name="signupName" value="<%= userFilledData ?  userFilledData.signupName : '' %>" required>
                                 <label for="floatingInput">Your name</label>
                             </div>
                             <div class="mb-4 form-floating">
                                 <input type="password" class="form-control" id="floatingPassword" name="signupPassword"
-                                    placeholder="Password">
+                                    placeholder="Password" required>
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <div class="mb-4 form-floating">
                                 <input type="text" class="form-control" id="contactNumber" name="signupContact" placeholder="Mobile Number (Optional)"
-                                    maxlength="12" pattern="[0-9]{10,12}" required>
+                                    maxlength="12" pattern="[0-9]{10,12}" required value="<%= userFilledData ?  userFilledData.signupContact : '' %>">
                                 <label for="contactNumber">Contact Number</label>
                             </div>
                             <div class="mb-4 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                 <label class="form-check-label" for="exampleCheck1">I agree with the site's stated <a
                                         href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms &
                                         Conditions</a></label>
@@ -63,8 +67,13 @@
         </div> <!-- end of container -->
     </div> <!-- end of ex-basic-1 -->
     <!-- end of basic -->
-
-
     <!-- Footer -->
 
     <%- include('footer') %>
+
+    <script>
+        function handleErrMsg(){
+            document.querySelector('#email-Field').classList.remove('border-danger')
+            document.querySelector('#erorMsg').style.display = 'none';
+    }
+    </script>
