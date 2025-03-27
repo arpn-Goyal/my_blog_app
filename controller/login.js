@@ -26,6 +26,7 @@ export const handleLogin = async (req, res) => {
             })
         }
         req.session.loginEmail = loginEmail;
+        
 
         //  login access
         res.redirect('/user/editUser');

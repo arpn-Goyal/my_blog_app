@@ -8,6 +8,10 @@ router.get('/editUser', (req, res)=>{
     res.render('editUserProfile', {loginEmail});
 })
 
+router.get('/changePassword', (req, res)=>{
+    res.render('userChangePassword');
+})
+
 router.get('/', (req, res)=>{
     res.render('userProfile');
 })
