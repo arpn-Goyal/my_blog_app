@@ -7,7 +7,7 @@ export const handleLogin = async (req, res) => {
     const { loginEmail, loginPassword } = req.query;
     try {
         // Check db response 
-        const userInfo = await signUp.findOne({ signupEmail: loginEmail }).select('+signupPassword');
+        const userInfo = await signUp.findOne({ signupEmail: loginEmail }).select('+signupPassword +signupContact +signupName');
         if (!userInfo) {
             return res.render('log-in', {
                 errorField: 'email',
@@ -26,8 +26,14 @@ export const handleLogin = async (req, res) => {
             })
         }
         req.session.loginEmail = loginEmail;
+        req.session.user = {
+            email: loginEmail, 
+            fullname: userInfo.signupName, 
+            mobile: userInfo.signupContact
+        };
         
-
+        // res.locals.user = {email: loginEmail, fullname: userInfo.signupName, mobile: userInfo.signupContact};
+        console.log("User Data Sent to Frontend:", res.locals.user); // Debugging
         //  login access
         res.redirect('/user/editUser');
 

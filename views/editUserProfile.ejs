@@ -9,10 +9,10 @@
                 <!-- Page title -->
                 <div class="my-5">
                     <h3>My Profile</h3>
-                    <hr>
+                    <hr />
                 </div>
                 <!-- Form START -->
-                <form class="file-upload">
+                <form class="file-upload" action="/user/saveProfile" method="POST" enctype="multipart/form-data">
                     <div class="row mb-5 gx-5">
                         <!-- Contact detail -->
                         <div class="col-xxl-8 mb-5 mb-xxl-0">
@@ -22,83 +22,83 @@
                                     <!-- First Name -->
                                     <div class="col-md-6">
                                         <label class="form-label">Full Name *</label>
-                                        <input type="text" class="form-control" placeholder="" name="fullname" aria-label="Full name"
-                                            value="Scaralet">
+                                        <input type="text" class="form-control" placeholder="" name="fullname"
+                                            aria-label="Full name" value="<%= user.fullname ? user.fullname: '' %>" />
                                     </div>
                                     <!-- Mobile number -->
                                     <div class="col-md-6">
                                         <label class="form-label">Mobile number *</label>
-                                        <input type="text" class="form-control" placeholder="" name="mobile" aria-label="Phone number"
-                                            value="+91 9852 8855 252">
+                                        <input type="text" class="form-control" placeholder="" name="mobile"
+                                            aria-label="Phone number" value="<%= user.mobile ? user.mobile : '' %>" />
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="inputEmail4" class="form-label">Email *</label>
                                         <input type="email" class="form-control" name="email"
-                                            value="<%= loginEmail ? loginEmail : '' %>" >
+                                            value="<%= user.email ? user.email : '' %>" disabled/>
                                     </div>
                                     <!-- Pronouns -->
                                     <div class="col-md-6">
-                                        <label for="inputEmail4" class="form-label">Pronouns </label>
-                                        <input type="text" class="form-control" name="pronouns"
-                                            value="">
+                                        <label for="pronouns" class="form-label">Select your pronouns: *</label>
+                                        <select id="pronouns" class="form-control" name="pronouns">
+                                            <option value="he/him">He/Him</option>
+                                            <option value="she/her">She/Her</option>
+                                            <option value="they/them">They/Them</option>
+                                            <option value="he/they">He/They</option>
+                                            <option value="she/they">She/They</option>
+                                            <option value="any">Any Pronouns</option>
+                                            <option value="prefer-not">Prefer Not to Say</option>
+                                        </select>
                                     </div>
                                     <!-- Bio -->
                                     <div class="col-md-12">
-                                        <label for="inputEmail4" class="form-label">Short bio </label>
-                                        <textarea  class="form-control" name="bio"></textarea>
+                                        <label for="inputEmail4" class="form-label">Short bio *</label>
+                                        <textarea class="form-control" name="bio"><%= user ? user.bio : '' %></textarea>
                                     </div>
-                                    <div class=" px-4 py-5 rounded">
+                                    <div class="px-4 py-5 rounded">
                                         <div class="row g-3">
                                             <h4 class="mb-4 mt-0">Social media detail</h4>
                                             <!-- Facebook -->
                                             <div class="col-md-6">
                                                 <label class="form-label"><i
-                                                        class="fab fa-fw fa-facebook me-2 text-facebook"></i>Facebook *</label>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Facebook"
-                                                    value="http://www.facebook.com">
+                                                        class="fab fa-fw fa-facebook me-2 text-facebook"></i>Facebook
+                                                    </label>
+                                                <input type="text" class="form-control" placeholder=""
+                                                    aria-label="Facebook" value="<%= user ? user.facebook : 'http://www.facebook.com' %>"
+                                                    name="facebook" />
                                             </div>
                                             <!-- Twitter -->
                                             <div class="col-md-6">
                                                 <label class="form-label"><i
-                                                        class="fab fa-fw fa-twitter text-twitter me-2"></i>Twitter *</label>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Twitter"
-                                                    value="http://www.twitter.com">
+                                                        class="fab fa-fw fa-twitter text-twitter me-2"></i>Twitter
+                                                    </label>
+                                                <input type="text" class="form-control" placeholder=""
+                                                    aria-label="Twitter" value="<%= user ? user.twitter: "http://www.twitter.com" %>"
+                                                    name="twitter" />
                                             </div>
                                             <!-- Linkedin -->
                                             <div class="col-md-6">
                                                 <label class="form-label"><i
                                                         class="fab fa-fw fa-linkedin-in text-linkedin me-2"></i>Linkedin
-                                                    *</label>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Linkedin"
-                                                    value="http://www.linkedin.com">
+                                                    </label>
+                                                <input type="text" class="form-control" placeholder=""
+                                                    aria-label="Linkedin" value="<%= user ? user.linkedin: "http://www.linkedin.com" %>"
+                                                    name="linkedin" />
                                             </div>
                                             <!-- Instragram -->
                                             <div class="col-md-6">
                                                 <label class="form-label"><i
                                                         class="fab fa-fw fa-instagram text-instagram me-2"></i>Instagram
-                                                    *</label>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Instragram"
-                                                    value="http://www.instragram.com">
+                                                    </label>
+                                                <input type="text" class="form-control" placeholder=""
+                                                    aria-label="Instragram" value="<%= user ? user.twitter: "http://www.instragram.com" %>"
+                                                    name="instagram" />
                                             </div>
-                                            <!-- Dribble -->
-                                            <div class="col-md-6">
-                                                <label class="form-label"><i
-                                                        class="fas fa-fw fa-basketball-ball text-dribbble me-2"></i>Dribble
-                                                    *</label>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Dribble"
-                                                    value="http://www.dribble.com">
-                                            </div>
-                                            <!-- Pinterest -->
-                                            <div class="col-md-6">
-                                                <label class="form-label"><i
-                                                        class="fab fa-fw fa-pinterest text-pinterest"></i>Pinterest *</label>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Pinterest"
-                                                    value="http://www.pinterest.com">
-                                            </div>
-                                        </div> <!-- Row END -->
+                                        </div>
+                                        <!-- Row END -->
                                     </div>
-                                </div> <!-- Row END -->
+                                </div>
+                                <!-- Row END -->
                             </div>
                         </div>
                         <!-- Upload profile -->
@@ -108,53 +108,91 @@
                                     <h4 class="mb-3 mt-0">Upload profile photo</h4>
                                     <div class="text-center">
                                         <!-- Image upload -->
-                                        <div class="square position-relative display-2 mb-3" style="width: 220px;height: 220px;">
-                                            <i
-                                                class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-                                        </div>
+                                        <img src="<%= user ? user.profile: "images/demoUser.png" %>" id="profilePreview" class="square position-relative display-2 mb-3"
+                                            style="width: 220px; height: 220px; border-radius:50%;"/>
                                         <!-- Button -->
-                                        <input type="file" id="customFile" name="file" hidden="">
-                                        <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-                                        <button type="button" class="btn btn-danger-soft">Remove</button>
+                                        <input type="file" class="btn btn-success-soft " id="profile" name="profile"  hidden="" />
+                                        <label class="btn btn-success-soft btn-block" for="profile">Upload</label>
+                                        <button type="button" class="btn btn-danger-soft"  onclick="removeImage('profile')">
+                                            Remove
+                                        </button>
                                         <!-- Content -->
-                                        <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size
-                                            200px x 200px</p>
+                                        <p class="text-muted mt-3 mb-0">
+                                            <span class="me-1">Note:</span>Minimum size 200px x 200px
+                                        </p>
                                     </div>
                                 </div>
-                               
                             </div>
-                            <div class="bg-secondary-soft px-4 py-5 rounded  mt-2" >
+                            <div class="bg-secondary-soft px-4 py-5 rounded mt-2">
                                 <div class="row g-3">
                                     <h4 class="mb-4 mt-0">Upload cover image</h4>
                                     <div class="text-center">
                                         <!-- Image upload -->
-                                        <div class="square position-relative display-2 mb-3" style="height: 100px;
-    width: 200px;">
-                                            <i
-                                                class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-                                        </div>
+                                        <img src="<%= user ? user.cover: "images/coverUser.jpg"%>" id="coverPreview" class="square position-relative display-2 mb-3"
+                                            style="height: 100px; width: 200px" />
                                         <!-- Button -->
-                                        <input type="file" id="customFile" name="file" hidden="">
-                                        <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-                                        <button type="button" class="btn btn-danger-soft">Remove</button>
+                                        <label class="btn btn-success-soft btn-block" for="cover">Upload</label>
+                                        <input type="file" class="btn btn-success-soft " id="cover" name="cover"  hidden=""/>
+                                        <button type="button" class="btn btn-danger-soft" onclick="removeImage('cover')">
+                                            Remove
+                                        </button>
                                         <!-- Content -->
-                                    
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- Row END -->
+                    </div>
+                    <!-- Row END -->
 
-                  
                     <!-- button -->
                     <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                        <button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-                        <button type="button" class="btn btn-primary btn-lg">Update profile</button>
+                        <!-- <button type="button" class="btn btn-danger btn-lg">
+                            Delete profile
+                        </button> -->
+
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Update profile
+                        </button>
                     </div>
-                </form> <!-- Form END -->
+                </form>
+                <!-- Form END -->
             </div>
             <div class="col-1"></div>
         </div>
     </div>
 
     <%- include('footer') %>
+
+    <script>
+        // Function to handle image preview
+        function previewImage(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+
+            input.addEventListener("change", function (event) {
+                const file = event.target.files[0]; // Get selected file
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        preview.src = e.target.result; // Set preview image
+                        preview.style.display = "block"; // Show image
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // Function to remove image preview
+        function removeImage(type) {
+            if(type === 'profile') document.getElementById(type + "Preview").src = "images/demoUser.png";
+
+            else if(type === 'cover')  document.getElementById(type + "Preview").src = "images/coverUser.jpg";
+
+          //  document.getElementById(type + "Preview").style.display = "none";
+            document.getElementById(type).value = ""; // Reset file input
+        }
+
+        // Initialize preview functions
+        previewImage("profile", "profilePreview");
+        previewImage("cover", "coverPreview");
+    </script>

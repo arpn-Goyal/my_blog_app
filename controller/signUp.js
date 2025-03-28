@@ -19,6 +19,7 @@ export const handleSignUp = async (req, res) => {
     if (!response) {
       res.status(400).json({ errMsg: " User dosn't created " });
     }
+
     res.redirect("/login");
   } catch (error) {
     if (error.code === 11000) {
