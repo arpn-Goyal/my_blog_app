@@ -33,7 +33,7 @@ export const handleLogin = async (req, res) => {
         };
         
         // res.locals.user = {email: loginEmail, fullname: userInfo.signupName, mobile: userInfo.signupContact};
-        console.log("User Data Sent to Frontend:", res.locals.user); // Debugging
+        // console.log("User Data Sent to Frontend:", res.locals.user); // Debugging
         //  login access
         res.redirect('/user/editUser');
 

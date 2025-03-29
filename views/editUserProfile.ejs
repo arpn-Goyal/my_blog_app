@@ -28,7 +28,7 @@
                                     <!-- Mobile number -->
                                     <div class="col-md-6">
                                         <label class="form-label">Mobile number *</label>
-                                        <input type="text" class="form-control" placeholder="" name="mobile"
+                                        <input type="text" class="form-control" placeholder="" maxlength="12" pattern="[0-9]{10,12}" name="mobile"
                                             aria-label="Phone number" value="<%= user.mobile ? user.mobile : '' %>" />
                                     </div>
                                     <!-- Email -->
@@ -41,14 +41,15 @@
                                     <div class="col-md-6">
                                         <label for="pronouns" class="form-label">Select your pronouns: *</label>
                                         <select id="pronouns" class="form-control" name="pronouns">
-                                            <option value="he/him">He/Him</option>
-                                            <option value="she/her">She/Her</option>
-                                            <option value="they/them">They/Them</option>
-                                            <option value="he/they">He/They</option>
-                                            <option value="she/they">She/They</option>
-                                            <option value="any">Any Pronouns</option>
-                                            <option value="prefer-not">Prefer Not to Say</option>
+                                            <option value="he/him" <%= user.pronouns === "he/him" ? "selected" : "" %>>He/Him</option>
+                                            <option value="she/her" <%= user.pronouns === "she/her" ? "selected" : "" %>>She/Her</option>
+                                            <option value="they/them" <%= user.pronouns === "they/them" ? "selected" : "" %>>They/Them</option>
+                                            <option value="he/they" <%= user.pronouns === "he/they" ? "selected" : "" %>>He/They</option>
+                                            <option value="she/they" <%= user.pronouns === "she/they" ? "selected" : "" %>>She/They</option>
+                                            <option value="any" <%= user.pronouns === "any" ? "selected" : "" %>>Any Pronouns</option>
+                                            <option value="prefer-not" <%= user.pronouns === "prefer-not" ? "selected" : "" %>>Prefer Not to Say</option>
                                         </select>
+                                        
                                     </div>
                                     <!-- Bio -->
                                     <div class="col-md-12">

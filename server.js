@@ -36,7 +36,6 @@ mongoose.connect(MONGO_URI)
     
 // Set EJS as view Engine 
 app.set('view engine', 'ejs');
-
 // To Serve Static Files
 // It allows your server to directly serve frontend assets like HTML, CSS, JavaScript, images, and fonts without defining separate routes.
 app.use(e.static('public'));
@@ -46,26 +45,6 @@ app.use("/uploads", e.static("uploads"));
 // body-parser is a middleware in Express.js that extracts the data sent in HTTP requests (like form submissions) and makes it available in req.body
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// -------------------------------
-// Storage setup (local "uploads" folder)
-// const storage = multer.diskStorage({
-//     destination: "uploads/",
-//     filename: (req, file, cb) => {
-//       cb(null, Date.now() + "-" + file.originalname);
-//     },
-//   });
-  
-//   const upload = multer({ storage });
-
-//   app.post("/upload", upload.fields([
-//     { name: "profile", maxCount: 1 }, 
-//     { name: "cover", maxCount: 1 }
-//   ]), (req, res) => {
-//     res.json({
-//       profileUrl: `/uploads/${req.files.profile[0].filename}`,
-//       coverUrl: `/uploads/${req.files.cover[0].filename}`
-//     });
-//   });
 
 // ---------------------------------
 
