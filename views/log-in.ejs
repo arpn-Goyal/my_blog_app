@@ -24,21 +24,21 @@
                             <!-- Log In Form -->
                             <form action="/login/checkLogin" method="GET">
                                 <div class="mb-4 form-floating">
-                                    <input type="email" onfocus="handleWrongEmail" class="form-control" name="loginEmail" value="<%= userData.loginEmail ? userData.loginEmail : 'Testerr@gmail.com' %>" id="floatingInput" placeholder="name@example.com" required>
+                                    <input type="email" onfocus="handleWrongEmail" class="form-control" name="loginEmail" value="<%= userData.loginEmail ? userData.loginEmail : 'daniel.solo.travels@email.com' %>" id="floatingInput" placeholder="name@example.com" required>
                                     <label for="floatingInput">Email address</label>
                                     <% if(errorMsg && errorField === 'email') {%>
                                         <p style="color: red; font-size: 14px;" id="erorMsgEmail"><%= errorMsg %></p>
                                     <% } %>    
                                 </div>
                                 <div class="mb-4 form-floating">
-                                    <input type="password" onfocus="handleWrongpassword" class="form-control" name="loginPassword" id="floatingPassword" placeholder="Password" required value="Testerr@123">
+                                    <input type="password" onfocus="handleWrongpassword" class="form-control" name="loginPassword" id="floatingPassword" placeholder="Password" required value="JapanCherry@2025">
                                     <label for="floatingPassword">Password</label>
                                     <% if(errorMsg && errorField === 'password') {%>
                                         <p style="color: red; font-size: 14px;" id="erorMsgPassword"><%= errorMsg %></p>
                                     <% } %> 
                                 </div>
                                 <div class="mb-4 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required checked>
                                     <label class="form-check-label" for="exampleCheck1">I agree with the site's stated <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
                                 </div>
                                 <button type="submit" class="form-control-submit-button">Log in</button>

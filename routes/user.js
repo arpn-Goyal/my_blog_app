@@ -2,7 +2,7 @@ import e from "express";
 import multer from 'multer'
 import { handleUserProfile } from '../controller/user.js';
 import userProfileModal from '../models/userProfile.mongodb.js';
-
+import blogModel from "../models/blog.mongodb.js";
 const router = e.Router();
 
 // Storage setup (local "uploads" folder)
@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     destination: "uploads/",
     filename: (req, file, cb) => {
         cb(null, Date.now() + "-" + file.originalname);
-        console.log(file.originalname)
+        // console.log(file.originalname)
     },
 });
 
@@ -20,11 +20,13 @@ const upload = multer({ storage });
 router.get('/', async (req, res) => {
     try {
         const email = req.session.loginEmail;
+        const allblogs = await blogModel.find({email}).sort({ createdAt: -1 });
+
         const userProfile = await userProfileModal.findOne({ email }) || {};
         if (!userProfile)
             res.status(400).json({ errMsg: 'Error while Sending Data on user profile' });
 
-        res.render('userProfile', { userProfile });
+        res.render('userProfile', { userProfile, allblogs});
     } catch (error) {
         console.log(error);
         res.status(500).json({ errMsg: 'Internal Server Error on Profile' });
@@ -35,7 +37,7 @@ router.get('/editUser', async (req, res) => {
     try {
         const loginEmail = req.session.loginEmail;
         const user = await userProfileModal.findOne({ email: loginEmail })
-        console.log(user)
+        // console.log(user)
         if (!user)
             res.render('editUserProfile', { loginEmail, user: req.session.user });
 

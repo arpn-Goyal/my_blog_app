@@ -40,11 +40,12 @@ app.set('view engine', 'ejs');
 // It allows your server to directly serve frontend assets like HTML, CSS, JavaScript, images, and fonts without defining separate routes.
 app.use(e.static('public'));
 app.use("/uploads", e.static("uploads"));
+app.use("/blogCover", e.static("blogCover"));
 
 // Role of body-parser in Express
 // body-parser is a middleware in Express.js that extracts the data sent in HTTP requests (like form submissions) and makes it available in req.body
+app.use(bodyParser.json());  // Add this
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 // ---------------------------------
 

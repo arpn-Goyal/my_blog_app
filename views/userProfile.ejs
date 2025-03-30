@@ -39,8 +39,7 @@
                                         <div>
                                             <small class="fw-medium text-gray-800"></small>
                                             <h1 class="mb-0">
-                                                <%= userProfile ? userProfile.fullname : '' %> <span class="fs-6">( <%=
-                                                            userProfile ? userProfile.pronouns : '' %> )</span>
+                                                <%= userProfile ? userProfile.fullname : '' %> <span class="fs-6">( <%= userProfile ? userProfile.pronouns : '' %> )</span>
                                             </h1>
                                             <!--content-->
                                             <div class="d-flex flex-lg-row flex-column  pe-5">
@@ -165,6 +164,60 @@
                 </div>
             </div>
             <div class="col-1"></div>
+        </div>
+
+        <hr class="my-4 w-75 mx-auto border border-4 border-info shadow-lg">
+        
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col col-xl-10">
+                <% allblogs.forEach(blog=> { %>
+                    <div class="card mb-5" style="border-radius: 15px;">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <h4 class="mb-3"><%= blog.blogTitle %></h4>
+                                    <p class="small"><i class="far fa-star fa-lg"></i> <span class="mx-2">|</span>
+                                        Created by
+                                        <strong><%= blog.writerName %></strong> <%= blog.blogDate %>
+                                    </p>
+                                    <hr class="my-1">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <p>
+                                            <%= blog.blogDescription %>
+                                        </p>
+                                    </div>
+                                    <div class="d-flex justify-content-start align-items-center ">
+                                        <p class="mb-0 text-uppercase"><i class="fas fa-cog me-2"></i> <span
+                                                class="text-muted small">8 min
+                                                read</span></p>
+                                        <p class="mb-0 text-uppercase"><i class="fas fa-link ms-4 me-2"></i> <span
+                                                class="text-muted small">1 day ago</span></p>
+                                        <p class="mb-0 text-uppercase"><i class="fas fa-ellipsis-h ms-4 me-2"></i>
+                                            <span class="text-muted small">Read More</span>
+                                            <span class="ms-3 me-4">|</span>
+                                        </p>
+                                        <a href="#!">
+                                            <img src="<%= blog.profileImg || 'https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp' %>"
+                                                alt="avatar" class="img-fluid rounded-circle me-3"  style="width: 40px; height:40px;">
+                                        </a>
+                                        <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                            class="btn btn-outline-dark btn-sm btn-floating">
+                                            <i class="fas fa-plus text-body"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pe-5">
+                                <div class="py-5">
+                                    <a href="#!">
+                                        <img src="<%= blog.blogImage || ' images/user_Img.jpg' %>" alt="avatar" class="img-fluid">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
         </div>
     </div>
 
