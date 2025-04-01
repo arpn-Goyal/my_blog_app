@@ -9,10 +9,15 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="card-body p-4">
-                                        <h4 class="mb-3"><%= blog.blogTitle %></h4>
+                                        <h4 class="mb-3">
+                                            <%= blog.blogTitle %>
+                                        </h4>
                                         <p class="small"><i class="far fa-star fa-lg"></i> <span class="mx-2">|</span>
                                             Created by
-                                            <strong><%= blog.writerName %></strong> <%= blog.blogDate %>
+                                            <strong>
+                                                <%= blog.writerName %>
+                                            </strong>
+                                            <%= blog.blogDate %>
                                         </p>
                                         <hr class="my-1">
                                         <div class="d-flex justify-content-start align-items-center">
@@ -26,13 +31,15 @@
                                                     read</span></p>
                                             <p class="mb-0 text-uppercase"><i class="fas fa-link ms-4 me-2"></i> <span
                                                     class="text-muted small">1 day ago</span></p>
-                                            <p class="mb-0 text-uppercase"><i class="fas fa-ellipsis-h ms-4 me-2"></i>
-                                                <span class="text-muted small">Read More</span>
+                                            <p class="mb-0 text-uppercase">
+                                                <i class="fas fa-ellipsis-h ms-4 me-1"></i>
+                                                <span class="text-muted small" style="cursor: pointer;"> <a href="/blog/<%= blog.blogSlug %>">Read More</a> </span>
                                                 <span class="ms-3 me-4">|</span>
                                             </p>
                                             <a href="#!">
                                                 <img src="<%= blog.profileImg || 'https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp' %>"
-                                                    alt="avatar" class="img-fluid rounded-circle me-3"  style="width: 40px; height:40px;">
+                                                    alt="avatar" class="img-fluid rounded-circle me-3"
+                                                    style="width: 40px; height:40px;">
                                             </a>
                                             <button type="button" data-mdb-button-init data-mdb-ripple-init
                                                 class="btn btn-outline-dark btn-sm btn-floating">
@@ -44,14 +51,15 @@
                                 <div class="col-md-4 pe-5">
                                     <div class="py-5">
                                         <a href="#!">
-                                            <img src="<%= blog.blogImage || ' images/user_Img.jpg' %>" alt="avatar" class="img-fluid">
+                                            <img src="<%= blog.blogImage || ' images/user_Img.jpg' %>" alt="avatar"
+                                                class="img-fluid">
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <% }); %>
-                       
+
                 </div>
             </div>
         </div>

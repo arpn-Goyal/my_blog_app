@@ -32,6 +32,12 @@
     <link rel="stylesheet" href="css/editUserProfile.css">
     <!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
+    <style>
+        .card {
+            background-color: #f6f6f6;
+            border: none;
+        }
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
@@ -59,10 +65,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/blog">Dashboard</a>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
-                            aria-expanded="false"><% if(typeof signupEmail !== 'undefined' && signupEmail !== '')  %></a>
+                            aria-expanded="false">
+                            <% if(typeof signupEmail !=='undefined' && signupEmail !=='' ) %>
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown01">
                             <li><a class="dropdown-item" href="/user">Profile</a></li>
                             <li>
@@ -85,16 +93,13 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <% if(typeof keyNameSession.loginEmail !== 'undefined' && keyNameSession.loginEmail !== '') {%>
+                    <% if(typeof keyNameSession.loginEmail !=='undefined' && keyNameSession.loginEmail !=='' ) {%>
                         <a class="btn-outline-sm" href="/logout">logout</a>
-                    <% } else{%>
-                        <a class="btn-outline-sm" href="/login">login</a>
-                    <% } %>
+                        <% } else{%>
+                            <a class="btn-outline-sm" href="/login">login</a>
+                            <% } %>
                 </span>
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-
-
-    

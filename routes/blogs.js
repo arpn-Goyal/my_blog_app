@@ -33,4 +33,17 @@ router.post('/save', upload.fields([
    { name:'blogImage', maxCount: 1}
 ]), handleBlogCreation);
 
+router.get('/:slug', async (req, res)=>{
+    try {
+        // res.send(req.params);
+        const slug = req.params.slug;
+        const blog = await blogModel.findOne({blogSlug: slug});
+        if(!blog) res.status(400).json({errMsg: "Blog Data doesn't found"})
+
+        res.render('blog', {blog});
+    } catch (error) {
+        res.status(500).json({errMsg: "Server Internal Server Error"})
+    }
+})
+
 export default router;
