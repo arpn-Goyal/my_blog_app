@@ -10,12 +10,12 @@ import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import session from "express-session";
 import multer from "multer";
+import methodOverride from 'method-override';
 const app = e();
 
 // ---------------------------------
 // Sesssion
 app.use(session({secret : 'secretKey'}))
-
 
 // To make session accessible globally in EJS
 app.use((req, res, next)=>{
@@ -32,7 +32,6 @@ const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI)
     .then(() => console.log("✅ Connected to MongoDB"))
     .catch((err) => console.error("❌ MongoDB connection error:", err));
-
     
 // Set EJS as view Engine 
 app.set('view engine', 'ejs');
@@ -46,7 +45,7 @@ app.use("/blogCover", e.static("blogCover"));
 // body-parser is a middleware in Express.js that extracts the data sent in HTTP requests (like form submissions) and makes it available in req.body
 app.use(bodyParser.json());  // Add this
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(methodOverride('_method'));
 // ---------------------------------
 
 app.get('/',authMiddleware, (req, res)=>{

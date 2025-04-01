@@ -72,6 +72,21 @@
 </button>
 <!-- end of back to top button -->
     
+<script>
+    document.querySelector('#togglePassword').addEventListener('click', ()=>{
+        const passwordInput = document.querySelector('#floatingPassword');
+
+        if(passwordInput.type === 'password'){
+            passwordInput.type = "text";
+            document.querySelector('#togglePassword').classList.add("fa-eye");
+            document.querySelector('#togglePassword').classList.remove("fa-eye-slash");
+        }else {
+            passwordInput.type = "password";
+            document.querySelector('#togglePassword').classList.add("fa-eye-slash");
+            document.querySelector('#togglePassword').classList.remove("fa-eye");
+        }
+    })
+</script>
 <!-- Scripts -->
 <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
 <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
