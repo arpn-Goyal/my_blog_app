@@ -40,7 +40,6 @@ const userSchema = mongoose.Schema({
     },
     profile:{
         type: String,
-
     },
     cover:{
         type: String,

@@ -1,5 +1,4 @@
 <%- include('header') %>
-
     <style>
         .profile {
             margin-top: -100px;
@@ -16,19 +15,18 @@
                 <div class="card">
                     <!--img-->
                     <div class="rounded-top-3" 
-                        style='background-image: url("<%= userProfile.cover ? userProfile.cover : 'images/cover.png' %>");
+                        style='background-image: url("<%= userProfile.cover ? userProfile.cover : 'images/coverUser.jpg' %>");
                         background-position: center;
                         background-size: cover;
                         background-repeat: no-repeat;
                         height: 250px;'>
                     </div>
 
-
                     <div class="card-body p-md-5">
                         <div class="d-flex flex-column gap-5">
                             <!--img-->
                             <div class="mt-n8 profile">
-                                <img src="<%= userProfile && userProfile.profile ? userProfile.profile : 'images/profile.png' %>"
+                                <img src="<%= userProfile && userProfile.profile ? userProfile.profile : 'images/demoUser.png' %>"
                                     alt="mentor 1" class="rounded-4 mt-n8 " height="150">
                             </div>
 
@@ -220,5 +218,4 @@
             </div>
         </div>
     </div>
-
     <%- include('footer') %>

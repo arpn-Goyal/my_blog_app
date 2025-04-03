@@ -1,6 +1,6 @@
-
 import signUp from "../models/signUp.mongodb.js";
 import bcrypt from 'bcrypt';
+import userProfileModal from "../models/userProfile.mongodb.js";
 
 export const handleLogin = async (req, res) => {
     // console.log(req.query);
@@ -25,15 +25,21 @@ export const handleLogin = async (req, res) => {
                 userData: { loginEmail, password: '' }
             })
         }
+        // Fetch additional user details from userProfileModal
+        const userProfile = await userProfileModal.findOne({loginEmail}).select('+profile');
+
+        // Pass if Profile Image is there else Default Image
         req.session.loginEmail = loginEmail;
         req.session.user = {
             email: loginEmail, 
             fullname: userInfo.signupName, 
-            mobile: userInfo.signupContact
+            mobile: userInfo.signupContact,
+            profileImg: userProfile?.profile || 'images/demoUser.png',
         };
         
         // res.locals.user = {email: loginEmail, fullname: userInfo.signupName, mobile: userInfo.signupContact};
-        // console.log("User Data Sent to Frontend:", res.locals.user); // Debugging
+        // console.log("User Data Sent to Frontend:", res.locals.user); // Debugging 
+
         //  login access
         res.redirect('/user/editUser');
 
@@ -43,5 +49,4 @@ export const handleLogin = async (req, res) => {
         res.setHeader("X-Error-Message-Login", "Internal Server Error");
         res.status(500).send("Internal Server Error");
     }
-
 }

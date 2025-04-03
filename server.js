@@ -9,7 +9,6 @@ import bodyParser from "body-parser";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import session from "express-session";
-import multer from "multer";
 import methodOverride from 'method-override';
 const app = e();
 
@@ -20,6 +19,12 @@ app.use(session({secret : 'secretKey'}))
 // To make session accessible globally in EJS
 app.use((req, res, next)=>{
     res.locals.keyNameSession = req.session;
+    // res.locals.User = req.session.user;
+    if(typeof req.session.user !='undefined' ){
+        // console.log(req.session.user.email);
+        res.locals.User = req.session.user;
+        // console.log(res.locals.User);
+    }
     next();
 })
 
@@ -35,6 +40,7 @@ mongoose.connect(MONGO_URI)
     
 // Set EJS as view Engine 
 app.set('view engine', 'ejs');
+
 // To Serve Static Files
 // It allows your server to directly serve frontend assets like HTML, CSS, JavaScript, images, and fonts without defining separate routes.
 app.use(e.static('public'));
@@ -46,6 +52,7 @@ app.use("/blogCover", e.static("blogCover"));
 app.use(bodyParser.json());  // Add this
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+
 // ---------------------------------
 
 app.get('/',authMiddleware, (req, res)=>{

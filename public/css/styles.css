@@ -24,7 +24,7 @@ Table Of Contents:
 Colors:
 - Backgrounds - light gray #f9f8f8
 - Buttons - navy blue #272556
-- Buttons - orange #f25c05
+- Buttons - orange rgb(6 39 89);
 - Headings text - navy blue #272556
 - Body text - dark gray #565578
 ******************************************/
@@ -203,10 +203,10 @@ a:hover {
 .btn-outline-reg {
 	display: inline-block;
 	padding: 1.375rem 2.25rem 1.375rem 2.25rem;
-	border: 1px solid #f25c05;
+	border: 1px solid rgb(6 39 89);;
 	border-radius: 30px;
 	background-color: transparent;
-	color: #f25c05;
+	color: rgb(6 39 89);;
 	font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0;
@@ -215,7 +215,7 @@ a:hover {
 }
 
 .btn-outline-reg:hover {
-	background-color: #f25c05;
+	background-color: rgb(6 39 89);;
 	color: #ffffff;
 	text-decoration: none;
 }
@@ -223,10 +223,10 @@ a:hover {
 .btn-outline-lg {
 	display: inline-block;
 	padding: 1.625rem 2.625rem 1.625rem 2.625rem;
-	border: 1px solid #f25c05;
+	border: 1px solid rgb(6 39 89);;
 	border-radius: 30px;
 	background-color: transparent;
-	color: #f25c05;
+	color: rgb(6 39 89);;
 	font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0;
@@ -243,10 +243,10 @@ a:hover {
 .btn-outline-sm {
 	display: inline-block;
 	padding: 1rem 1.5rem 1rem 1.5rem;
-	border: 1px solid #f25c05;
+	border: 1px solid rgb(6 39 89);;
 	border-radius: 30px;
 	background-color: transparent;
-	color: #f25c05;
+	color: rgb(6 39 89);;
 	font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0;
@@ -255,7 +255,7 @@ a:hover {
 }
 
 .btn-outline-sm:hover {
-	background-color: #f25c05;
+	background-color: rgb(6 39 89);;
 	color: #ffffff;
 	text-decoration: none;
 }
@@ -273,9 +273,9 @@ a:hover {
 	display: inline-block;
 	width: 100%;
 	height: 3.25rem;
-	border: 1px solid #f25c05;
+	border: 1px solid rgb(6 39 89);;
 	border-radius: 30px;
-	background-color: #f25c05;
+	background-color: rgb(6 39 89);;
 	color: #ffffff;
 	font-weight: 600;
 	font-size: 0.875rem;
@@ -285,9 +285,9 @@ a:hover {
 }
 
 .form-control-submit-button:hover {
-	border: 1px solid #f25c05;
+	border: 1px solid rgb(6 39 89);;
 	background-color: transparent;
-	color: #f25c05;
+	color: rgb(6 39 89);;
 }
 
 /* Fade Animation For Rotating Text - ReplaceMe  */
@@ -400,7 +400,7 @@ a:hover {
 .navbar .nav-item.dropdown.show .nav-link,
 .navbar .nav-item .nav-link:hover,
 .navbar .nav-item .nav-link.active {
-	color: #f25c05;
+	color: rgb(6 39 89);;
 }
 
 /* Dropdown Menu */
@@ -437,7 +437,7 @@ a:hover {
 
 .navbar .dropdown-item:hover {
 	background-color: #fff2dc;
-	color: #f25c05;
+	color: rgb(6 39 89);;
 }
 
 .navbar .dropdown-divider {
@@ -471,7 +471,7 @@ a:hover {
 }
 
 .header .replace-me {
-	color: #f25c05;
+	color: rgb(6 39 89);;
 }
 
 .header .replace-me span {
@@ -506,7 +506,7 @@ a:hover {
 }
 
 .cards-1 .h2-heading span {
-	color: #f25c05;
+	color: rgb(6 39 89);;
 	text-decoration: underline;
 }
 
@@ -1069,7 +1069,7 @@ a:hover {
 }
 
 .ex-cards-1 .card .fa-stack-2x {
-	color: #f25c05;
+	color: rgb(6 39 89);;
 }
 
 .ex-cards-1 .card .fa-stack-1x {
